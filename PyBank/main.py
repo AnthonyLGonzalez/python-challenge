@@ -47,17 +47,34 @@ for x in range(1,len(MonthlyAmounts)):
   rowNum = rowNum + 1
 
 PeriodChangeAverage = round(sum(MonthlyDelta) / len(MonthlyDelta),2)
-GreatestIncreaseIndex = MonthlyDelta.index(max(MonthlyDelta))
-GreatestDecreaseIndex = MonthlyDelta.index(min(MonthlyDelta))
 
+## Fetch Greatest Increase/Decrease by using index on Zipped List
+Increase = MonthlyDelta.index(max(MonthlyDelta))
+Decrease = MonthlyDelta.index(min(MonthlyDelta))
+
+zip_MonthChange = list(zip(MonthList[1:TotalMonths],MonthlyDelta))
+
+## Begin Terminal Output
 print("Financial Analysis: \n ----------------------------")
 print("Total Months: " + str(TotalMonths))
 print("Total: $" + str(NetProfitLoss))
 print("Average  Change: $" + str(PeriodChangeAverage))
-print("Greatest Increase in Profits: " + MonthList[GreatestIncreaseIndex + 1] + " ($" + str(MonthlyDelta[GreatestIncreaseIndex]) + ")")
-print("Greatest Decrease in Profits: " + MonthList[GreatestDecreaseIndex + 1] + " ($" + str(MonthlyDelta[GreatestDecreaseIndex]) + ")")
+print("Greatest Increase in Profits: " + zip_MonthChange[Increase][0] + " ($" + str(zip_MonthChange[Increase][1]) + ")")
+print("Greatest Decrease in Profits: " + zip_MonthChange[Decrease][0] + " ($" + str(zip_MonthChange[Decrease][1]) + ")")
 
+## Begin CSV Output
+output_path = "/Users/anthonygonzalez/Desktop/GitHub/python-challenge/PyBank/Analysis/FinancialAnalysis.csv"
 
+with open(output_path, 'w') as csvfile:
 
+    # Initialize csv.writer
+    csvwriter = csv.writer(csvfile,delimiter=",")
 
-
+    # Write analysis to csv file
+    csvwriter.writerow(["Financial Analysis:"])
+    csvwriter.writerow(["----------------------------"])
+    csvwriter.writerow(["Total Months: " + str(TotalMonths)])
+    csvwriter.writerow(["Total: $" + str(NetProfitLoss)])
+    csvwriter.writerow(["Average  Change: $" + str(PeriodChangeAverage)])
+    csvwriter.writerow(["Greatest Increase in Profits: " + zip_MonthChange[Increase][0] + " ($" + str(zip_MonthChange[Increase][1]) + ")"])
+    csvwriter.writerow(["Greatest Decrease in Profits: " + zip_MonthChange[Decrease][0] + " ($" + str(zip_MonthChange[Decrease][1]) + ")"])
