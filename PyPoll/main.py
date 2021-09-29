@@ -48,13 +48,13 @@ for Candidate in VoteList:
       Votes[Candidate] = 1
 
 ## Gather Final Output
-print("Election Results")
+print("Election Results: ")
 print("-------------------------")
 print("Total Votes: " + str(TotalVoteCount))
 print("-------------------------")
 for key, value in Votes.items():
 
-    print(key +":", str( round( ( value / TotalVoteCount ) * 100 , 3)  ) + "% (" + str(value) + ")" )
+    print(key + ": " + str( round ( value / TotalVoteCount * 100  , 3 ) ) + "% (" + str(value) + ")" )
 
     if value > WinnerValue:
         WinnerValue = value
@@ -76,17 +76,18 @@ with open(output_path, 'w') as csvoutput:
     # Initialize csv.writer
     csvwriter = csv.writer(csvoutput,delimiter=",")
     
-    # Write analysis to csv file
-    csvwriter.writerow = (["-------------------------"])
-    csvwriter.writerow = (["Total Votes: " + str(TotalVoteCount)])
-    csvwriter.writerow = (["-------------------------"])
+    # # Write analysis to csv file
+    csvwriter.writerow(["Election Results: "])
+    csvwriter.writerow(["-------------------------"])
+    csvwriter.writerow(["Total Votes: " + str(TotalVoteCount)])
+    csvwriter.writerow(["-------------------------"])
     for key, value in Votes.items():
 
-        csvwriter.writerow = ([key +":", str( round( ( value / TotalVoteCount ) * 100 , 3)  ) + "% (" + str(value) + ")" ])
+         csvwriter.writerow([key + ": " + str( round( ( value / TotalVoteCount ) * 100 , 3)  ) + "% (" + str(value) + ")" ])
 
-        if value > WinnerValue:
-            WinnerValue = value
-            Winner = key
+         if value > WinnerValue:
+             WinnerValue = value
+             Winner = key
     
     csvwriter.writerow(["-------------------------"])
     csvwriter.writerow(["Winner: " + Winner])
