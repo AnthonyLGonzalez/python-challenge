@@ -3,13 +3,9 @@ import csv
 ## Establish Analysis Variables
 
 TotalVoteCount = 0
-
 Votes = {}
-
 VoteList = []
-
 Winner = ""
-
 WinnerValue = 0
 
 
