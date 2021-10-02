@@ -1,5 +1,5 @@
 import csv
-from os import read 
+import os
 
 ## Establish Analysis Variables
 MonthList = []
@@ -8,7 +8,8 @@ MonthlyDelta = []
 NetProfitLoss = 0
 
 ## Fetch File Path and Filename
-filepath = "python-challenge/PyBank/Resources/budget_data.csv"
+dir = os.path.dirname(__file__)
+filepath = os.path.join(dir,'Resources/budget_data.csv')
 
 ## Begin CSV Reader
 with open(filepath,'r') as csvFile:
@@ -63,7 +64,7 @@ print("Greatest Increase in Profits: " + zip_MonthChange[Increase][0] + " ($" + 
 print("Greatest Decrease in Profits: " + zip_MonthChange[Decrease][0] + " ($" + str(zip_MonthChange[Decrease][1]) + ")")
 
 ## Begin CSV Output
-output_path = "python-challenge/PyBank/Analysis/FinancialAnalysis.csv"
+output_path = os.path.join(dir,'Analysis/FinancialAnalysis.csv')
 
 with open(output_path, 'w') as csvfile:
 

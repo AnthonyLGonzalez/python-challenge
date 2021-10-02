@@ -1,5 +1,5 @@
 import csv
-
+import os
 ## Establish Analysis Variables
 
 TotalVoteCount = 0
@@ -10,7 +10,8 @@ WinnerValue = 0
 
 
 ## Fetch File Path and Filename
-filepath = "python-challenge/PyPoll/Resources/election_data.csv"
+dir = os.path.dirname(__file__)
+filepath = os.path.join(dir,'Resources/election_data.csv')
 
 with open(filepath, 'r') as csvFile:
 
@@ -65,7 +66,7 @@ print("-------------------------")
 
 
 ## Begin CSV Output
-output_path = "python-challenge/PyPoll/Analysis/Election_Results.csv"
+output_path = os.path.join(dir,'Analysis/Election_Results.csv')
 
 with open(output_path, 'w') as csvoutput:
 
