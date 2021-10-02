@@ -8,7 +8,7 @@ MonthlyDelta = []
 NetProfitLoss = 0
 
 ## Fetch File Path and Filename
-filepath = "/Users/anthonygonzalez/Desktop/GitHub/python-challenge/PyBank/Resources/budget_data.csv"
+filepath = "python-challenge/PyBank/Resources/budget_data.csv"
 
 ## Begin CSV Reader
 with open(filepath,'r') as csvFile:
@@ -63,7 +63,7 @@ print("Greatest Increase in Profits: " + zip_MonthChange[Increase][0] + " ($" + 
 print("Greatest Decrease in Profits: " + zip_MonthChange[Decrease][0] + " ($" + str(zip_MonthChange[Decrease][1]) + ")")
 
 ## Begin CSV Output
-output_path = "/Users/anthonygonzalez/Desktop/GitHub/python-challenge/PyBank/Analysis/FinancialAnalysis.csv"
+output_path = "python-challenge/PyBank/Analysis/FinancialAnalysis.csv"
 
 with open(output_path, 'w') as csvfile:
 

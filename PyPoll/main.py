@@ -10,7 +10,7 @@ WinnerValue = 0
 
 
 ## Fetch File Path and Filename
-filepath = "/Users/anthonygonzalez/Desktop/GitHub/python-challenge/PyPoll/Resources/election_data.csv"
+filepath = "python-challenge/PyPoll/Resources/election_data.csv"
 
 with open(filepath, 'r') as csvFile:
 
@@ -65,7 +65,7 @@ print("-------------------------")
 
 
 ## Begin CSV Output
-output_path = "/Users/anthonygonzalez/Desktop/GitHub/python-challenge/PyPoll/Analysis/Election_Results.csv"
+output_path = "python-challenge/PyPoll/Analysis/Election_Results.csv"
 
 with open(output_path, 'w') as csvoutput:
 
